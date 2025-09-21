@@ -35,7 +35,7 @@ function mergeArrayInset(mapOfActivity, array) {
 
 async function gatherAndMergeData() {
     var batchOf20s = 0;
-    const maximumBatches = 10 * 3;
+    const maximumBatches = 10 * 12;
 
     // preparing the static maps id -> object;
     const mapRegular = new Map();
@@ -49,7 +49,7 @@ async function gatherAndMergeData() {
         mergeArrayInset(mapRegular, regular);
         mergeArrayInset(mapAnalytics, analytics);
 
-        await wait(20); //* 3 = minutes
+        await wait(5);
         batchOf20s++;
     }
 

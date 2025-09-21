@@ -1,0 +1,831 @@
+{
+  "regulars": [
+    {
+      "id": "68cf6d6269b00332cb2800a6",
+      "loc": {
+        "long": -0.2044,
+        "lat": 42.7611
+      },
+      "ob": {
+        "timestamp": 1758424401,
+        "dateTimeISO": "2025-09-21T03:13:21+00:00",
+        "timestampMS": 1758424401961,
+        "dateTimeISOMS": "2025-09-21T03:13:21.961+00:00",
+        "age": 209,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -45000,
+          "numSensors": 12,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424418,
+      "recISO": "2025-09-21T03:13:38+00:00",
+      "age": 209,
+      "damagePotential": null,
+      "ellipse": null,
+      "pulseAlgorithm": null,
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 107,
+        "bearingENG": "ESE",
+        "distanceKM": 76.492,
+        "distanceMI": 47.53
+      }
+    },
+    {
+      "id": "68cf6dfe69b00332cb281257",
+      "loc": {
+        "long": -0.1764,
+        "lat": 42.8068
+      },
+      "ob": {
+        "timestamp": 1758424558,
+        "dateTimeISO": "2025-09-21T03:15:58+00:00",
+        "timestampMS": 1758424558614,
+        "dateTimeISOMS": "2025-09-21T03:15:58.614+00:00",
+        "age": 52,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -17000,
+          "numSensors": 7,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424574,
+      "recISO": "2025-09-21T03:16:14+00:00",
+      "age": 52,
+      "damagePotential": null,
+      "ellipse": null,
+      "pulseAlgorithm": null,
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 103,
+        "bearingENG": "ESE",
+        "distanceKM": 77.427,
+        "distanceMI": 48.111
+      }
+    },
+    {
+      "id": "68cf6e0369b00332cb281270",
+      "loc": {
+        "long": -0.1784,
+        "lat": 42.8001
+      },
+      "ob": {
+        "timestamp": 1758424559,
+        "dateTimeISO": "2025-09-21T03:15:59+00:00",
+        "timestampMS": 1758424559267,
+        "dateTimeISOMS": "2025-09-21T03:15:59.267+00:00",
+        "age": 51,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -73000,
+          "numSensors": 16,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424579,
+      "recISO": "2025-09-21T03:16:19+00:00",
+      "age": 51,
+      "damagePotential": null,
+      "ellipse": null,
+      "pulseAlgorithm": null,
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 103,
+        "bearingENG": "ESE",
+        "distanceKM": 77.433,
+        "distanceMI": 48.115
+      }
+    },
+    {
+      "id": "68cf6dd669b00332cb280d6f",
+      "loc": {
+        "long": -0.4188,
+        "lat": 43.4871
+      },
+      "ob": {
+        "timestamp": 1758424515,
+        "dateTimeISO": "2025-09-21T03:15:15+00:00",
+        "timestampMS": 1758424515520,
+        "dateTimeISOMS": "2025-09-21T03:15:15.520+00:00",
+        "age": 95,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -38000,
+          "numSensors": 9,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424534,
+      "recISO": "2025-09-21T03:15:34+00:00",
+      "age": 95,
+      "damagePotential": null,
+      "ellipse": null,
+      "pulseAlgorithm": null,
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 43,
+        "bearingENG": "NE",
+        "distanceKM": 81.278,
+        "distanceMI": 50.504
+      }
+    },
+    {
+      "id": "68cf6dd669b00332cb280d83",
+      "loc": {
+        "long": -0.2731,
+        "lat": 43.5369
+      },
+      "ob": {
+        "timestamp": 1758424516,
+        "dateTimeISO": "2025-09-21T03:15:16+00:00",
+        "timestampMS": 1758424516188,
+        "dateTimeISOMS": "2025-09-21T03:15:16.188+00:00",
+        "age": 94,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -12000,
+          "numSensors": 4,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424534,
+      "recISO": "2025-09-21T03:15:34+00:00",
+      "age": 94,
+      "damagePotential": null,
+      "ellipse": null,
+      "pulseAlgorithm": null,
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 46,
+        "bearingENG": "NE",
+        "distanceKM": 93.499,
+        "distanceMI": 58.098
+      }
+    },
+    {
+      "id": "68cf6e8669b00332cb282115",
+      "loc": {
+        "long": -0.5767,
+        "lat": 43.1355
+      },
+      "ob": {
+        "timestamp": 1758424692,
+        "dateTimeISO": "2025-09-21T03:18:12+00:00",
+        "timestampMS": 1758424692041,
+        "dateTimeISOMS": "2025-09-21T03:18:12.041+00:00",
+        "age": 26,
+        "pulse": {
+          "type": "cg",
+          "peakamp": 240000,
+          "numSensors": 18,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424710,
+      "recISO": "2025-09-21T03:18:30+00:00",
+      "age": 26,
+      "damagePotential": null,
+      "ellipse": null,
+      "pulseAlgorithm": null,
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 65,
+        "bearingENG": "ENE",
+        "distanceKM": 47.447,
+        "distanceMI": 29.482
+      }
+    },
+    {
+      "id": "68cf6e9069b00332cb282244",
+      "loc": {
+        "long": -0.1602,
+        "lat": 42.8321
+      },
+      "ob": {
+        "timestamp": 1758424703,
+        "dateTimeISO": "2025-09-21T03:18:23+00:00",
+        "timestampMS": 1758424703942,
+        "dateTimeISOMS": "2025-09-21T03:18:23.942+00:00",
+        "age": 30,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -10000,
+          "numSensors": 5,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424720,
+      "recISO": "2025-09-21T03:18:40+00:00",
+      "age": 30,
+      "damagePotential": null,
+      "ellipse": null,
+      "pulseAlgorithm": null,
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 100,
+        "bearingENG": "E",
+        "distanceKM": 78.165,
+        "distanceMI": 48.569
+      }
+    },
+    {
+      "id": "68cf6f4a69b00332cb2836e7",
+      "loc": {
+        "long": -0.0358,
+        "lat": 42.7404
+      },
+      "ob": {
+        "timestamp": 1758424888,
+        "dateTimeISO": "2025-09-21T03:21:28+00:00",
+        "timestampMS": 1758424888446,
+        "dateTimeISOMS": "2025-09-21T03:21:28.446+00:00",
+        "age": 31,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -24000,
+          "numSensors": 9,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424906,
+      "recISO": "2025-09-21T03:21:46+00:00",
+      "age": 31,
+      "damagePotential": null,
+      "ellipse": null,
+      "pulseAlgorithm": null,
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 106,
+        "bearingENG": "ESE",
+        "distanceKM": 90.357,
+        "distanceMI": 56.145
+      }
+    }
+  ],
+  "analytics": [
+    {
+      "id": "v729af270d0ff613b25c7337000b6152f",
+      "loc": {
+        "long": -0.2052,
+        "lat": 42.7627
+      },
+      "ob": {
+        "timestamp": 1758424401,
+        "dateTimeISO": "2025-09-21T03:13:21+00:00",
+        "timestampMS": 1758424401961,
+        "dateTimeISOMS": "2025-09-21T03:13:21.961+00:00",
+        "age": 186,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -45300,
+          "numSensors": 15,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424401,
+      "recISO": "2025-09-21T03:13:21+00:00",
+      "age": 186,
+      "damagePotential": {
+        "continuingCurrentProbability": "LOWEST",
+        "metalDamagePotential": 54,
+        "nonMetalDamagePotential": 72,
+        "impulseChargeC": 7.6,
+        "impulseSpecificEnergyJPO": 169346,
+        "strokeCount": 1
+      },
+      "ellipse": {
+        "polygon": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.20060678,
+                  42.77151108
+                ],
+                [
+                  -0.20589887,
+                  42.77165604
+                ],
+                [
+                  -0.2110045,
+                  42.76939774
+                ],
+                [
+                  -0.21455899,
+                  42.76534653
+                ],
+                [
+                  -0.21560282,
+                  42.76058197
+                ],
+                [
+                  -0.2138555,
+                  42.75638199
+                ],
+                [
+                  -0.20979191,
+                  42.75388336
+                ],
+                [
+                  -0.20450133,
+                  42.75374222
+                ],
+                [
+                  -0.19939676,
+                  42.7559967
+                ],
+                [
+                  -0.1958418,
+                  42.76005173
+                ],
+                [
+                  -0.19479649,
+                  42.76481628
+                ],
+                [
+                  -0.19654274,
+                  42.76901245
+                ],
+                [
+                  -0.20060678,
+                  42.77151108
+                ]
+              ]
+            ]
+          ]
+        },
+        "angleDegree": 21,
+        "semiMajorM": 1049,
+        "semiMinorM": 820,
+        "semiMajorFT": 3442,
+        "semiMinorFT": 2690
+      },
+      "pulseAlgorithm": "realtime",
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 106,
+        "bearingENG": "ESE",
+        "distanceKM": 76.379,
+        "distanceMI": 47.46
+      }
+    },
+    {
+      "id": "vbb96ab0c1986e1fc0ad8435171bf37fe",
+      "loc": {
+        "long": -0.4122,
+        "lat": 43.498
+      },
+      "ob": {
+        "timestamp": 1758424515,
+        "dateTimeISO": "2025-09-21T03:15:15+00:00",
+        "timestampMS": 1758424515520,
+        "dateTimeISOMS": "2025-09-21T03:15:15.520+00:00",
+        "age": 72,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -32000,
+          "numSensors": 10,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424515,
+      "recISO": "2025-09-21T03:15:15+00:00",
+      "age": 72,
+      "damagePotential": {
+        "continuingCurrentProbability": "LOWEST",
+        "metalDamagePotential": 32,
+        "nonMetalDamagePotential": 49,
+        "impulseChargeC": 4.7,
+        "impulseSpecificEnergyJPO": 73723,
+        "strokeCount": 1
+      },
+      "ellipse": {
+        "polygon": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.41098437,
+                  43.50811386
+                ],
+                [
+                  -0.41696793,
+                  43.50712967
+                ],
+                [
+                  -0.42167744,
+                  43.50370026
+                ],
+                [
+                  -0.42384893,
+                  43.49874496
+                ],
+                [
+                  -0.42289338,
+                  43.49358368
+                ],
+                [
+                  -0.41907251,
+                  43.48961258
+                ],
+                [
+                  -0.41341522,
+                  43.48788834
+                ],
+                [
+                  -0.40743351,
+                  43.48887253
+                ],
+                [
+                  -0.40272433,
+                  43.49229813
+                ],
+                [
+                  -0.40055135,
+                  43.49726105
+                ],
+                [
+                  -0.40150508,
+                  43.50241852
+                ],
+                [
+                  -0.40532559,
+                  43.50639343
+                ],
+                [
+                  -0.41098437,
+                  43.50811386
+                ]
+              ]
+            ]
+          ]
+        },
+        "angleDegree": 5,
+        "semiMajorM": 1128,
+        "semiMinorM": 945,
+        "semiMajorFT": 3701,
+        "semiMinorFT": 3100
+      },
+      "pulseAlgorithm": "realtime",
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 43,
+        "bearingENG": "NE",
+        "distanceKM": 82.526,
+        "distanceMI": 51.279
+      }
+    },
+    {
+      "id": "v2f026d20c7b5f333f3966cdd8751f208",
+      "loc": {
+        "long": -0.2752,
+        "lat": 43.5243
+      },
+      "ob": {
+        "timestamp": 1758424516,
+        "dateTimeISO": "2025-09-21T03:15:16+00:00",
+        "timestampMS": 1758424516188,
+        "dateTimeISOMS": "2025-09-21T03:15:16.188+00:00",
+        "age": 71,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -11900,
+          "numSensors": 6,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424516,
+      "recISO": "2025-09-21T03:15:16+00:00",
+      "age": 71,
+      "damagePotential": {
+        "continuingCurrentProbability": "LOWER",
+        "metalDamagePotential": 2,
+        "nonMetalDamagePotential": 3,
+        "impulseChargeC": 1.1,
+        "impulseSpecificEnergyJPO": 6869,
+        "strokeCount": 1
+      },
+      "ellipse": {
+        "polygon": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.27428427,
+                  43.51158142
+                ],
+                [
+                  -0.26800266,
+                  43.51352692
+                ],
+                [
+                  -0.26364395,
+                  43.51836014
+                ],
+                [
+                  -0.26238018,
+                  43.5247879
+                ],
+                [
+                  -0.26455906,
+                  43.53108597
+                ],
+                [
+                  -0.26958743,
+                  43.53555679
+                ],
+                [
+                  -0.27611616,
+                  43.53701782
+                ],
+                [
+                  -0.28239992,
+                  43.53506851
+                ],
+                [
+                  -0.28675833,
+                  43.53023911
+                ],
+                [
+                  -0.28801963,
+                  43.52381134
+                ],
+                [
+                  -0.28583857,
+                  43.51751328
+                ],
+                [
+                  -0.28081051,
+                  43.51303864
+                ],
+                [
+                  -0.27428427,
+                  43.51158142
+                ]
+              ]
+            ]
+          ]
+        },
+        "angleDegree": 177,
+        "semiMajorM": 1415,
+        "semiMinorM": 1037,
+        "semiMajorFT": 4642,
+        "semiMinorFT": 3402
+      },
+      "pulseAlgorithm": "realtime",
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 47,
+        "bearingENG": "NE",
+        "distanceKM": 92.414,
+        "distanceMI": 57.423
+      }
+    },
+    {
+      "id": "v6f663aece66ab4ee3ab8ac7f8523690b",
+      "loc": {
+        "long": -0.5588,
+        "lat": 43.1472
+      },
+      "ob": {
+        "timestamp": 1758424692,
+        "dateTimeISO": "2025-09-21T03:18:12+00:00",
+        "timestampMS": 1758424692041,
+        "dateTimeISOMS": "2025-09-21T03:18:12.041+00:00",
+        "age": 196,
+        "pulse": {
+          "type": "cg",
+          "peakamp": 254600,
+          "numSensors": 21,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424692,
+      "recISO": "2025-09-21T03:18:12+00:00",
+      "age": 196,
+      "damagePotential": {
+        "continuingCurrentProbability": "HIGHEST",
+        "metalDamagePotential": 95,
+        "nonMetalDamagePotential": 99,
+        "impulseChargeC": 30.5,
+        "impulseSpecificEnergyJPO": 1759169,
+        "strokeCount": 1
+      },
+      "ellipse": {
+        "polygon": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.55613285,
+                  43.13936615
+                ],
+                [
+                  -0.55160385,
+                  43.14130402
+                ],
+                [
+                  -0.54899949,
+                  43.14482498
+                ],
+                [
+                  -0.54902351,
+                  43.148983
+                ],
+                [
+                  -0.55167073,
+                  43.15266418
+                ],
+                [
+                  -0.5562256,
+                  43.15487671
+                ],
+                [
+                  -0.56146783,
+                  43.15503311
+                ],
+                [
+                  -0.56599748,
+                  43.15309525
+                ],
+                [
+                  -0.56860125,
+                  43.14957428
+                ],
+                [
+                  -0.56857592,
+                  43.14541245
+                ],
+                [
+                  -0.56592798,
+                  43.14173508
+                ],
+                [
+                  -0.56137371,
+                  43.13952255
+                ],
+                [
+                  -0.55613285,
+                  43.13936615
+                ]
+              ]
+            ]
+          ]
+        },
+        "angleDegree": 166,
+        "semiMajorM": 897,
+        "semiMinorM": 819,
+        "semiMajorFT": 2943,
+        "semiMinorFT": 2687
+      },
+      "pulseAlgorithm": "realtime",
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 64,
+        "bearingENG": "ENE",
+        "distanceKM": 49.316,
+        "distanceMI": 30.644
+      }
+    },
+    {
+      "id": "vd8d2fb46dcb5479c3c79486a655d3e5c",
+      "loc": {
+        "long": -0.1602,
+        "lat": 42.8321
+      },
+      "ob": {
+        "timestamp": 1758424703,
+        "dateTimeISO": "2025-09-21T03:18:23+00:00",
+        "timestampMS": 1758424703942,
+        "dateTimeISOMS": "2025-09-21T03:18:23.942+00:00",
+        "age": 185,
+        "pulse": {
+          "type": "cg",
+          "peakamp": -9800,
+          "numSensors": 5,
+          "icHeightFT": 0,
+          "icHeightM": 0
+        }
+      },
+      "recTimestamp": 1758424703,
+      "recISO": "2025-09-21T03:18:23+00:00",
+      "age": 185,
+      "damagePotential": {
+        "continuingCurrentProbability": "LOWER",
+        "metalDamagePotential": 0,
+        "nonMetalDamagePotential": 1,
+        "impulseChargeC": 0.9,
+        "impulseSpecificEnergyJPO": 4294,
+        "strokeCount": 1
+      },
+      "ellipse": {
+        "polygon": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  -0.15935308,
+                  42.81424713
+                ],
+                [
+                  -0.15323447,
+                  42.81679535
+                ],
+                [
+                  -0.14897735,
+                  42.82344437
+                ],
+                [
+                  -0.14772274,
+                  42.83242035
+                ],
+                [
+                  -0.14982241,
+                  42.84130859
+                ],
+                [
+                  -0.15469901,
+                  42.84772491
+                ],
+                [
+                  -0.1610474,
+                  42.8499527
+                ],
+                [
+                  -0.16716896,
+                  42.84740448
+                ],
+                [
+                  -0.17142577,
+                  42.84075546
+                ],
+                [
+                  -0.17267713,
+                  42.83177948
+                ],
+                [
+                  -0.17057447,
+                  42.82288742
+                ],
+                [
+                  -0.16569819,
+                  42.81647491
+                ],
+                [
+                  -0.15935308,
+                  42.81424713
+                ]
+              ]
+            ]
+          ]
+        },
+        "angleDegree": 178,
+        "semiMajorM": 1986,
+        "semiMinorM": 1020,
+        "semiMajorFT": 6516,
+        "semiMinorFT": 3346
+      },
+      "pulseAlgorithm": "realtime",
+      "relativeTo": {
+        "lat": 42.954057,
+        "long": -1.105155,
+        "bearing": 100,
+        "bearingENG": "E",
+        "distanceKM": 78.165,
+        "distanceMI": 48.569
+      }
+    }
+  ]
+}
