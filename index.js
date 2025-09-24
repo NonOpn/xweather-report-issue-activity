@@ -9,83 +9,105 @@ const cacheFilePath = "./activity.json";
 
 const wait = async (timeoutS) => new Promise((resolve, reject) => setTimeout(() => resolve(), timeoutS * 1000));
 
-async function fetchRegularAndAnalytics() {
-    const to = Math.round(Date.now() / 1000);
-    const from = to - (5 * 60); //from 5min ago to now
-    const params = `radius=100Km&limit=1000&from=${from}&to=${to}`;
-    const paramsWithCreds = `?client_id=${client_id}&client_secret=${client_secret}&${params}`;
-    const regular_request = await fetch(`https://data.api.xweather.com/lightning/${latitude},${longitude}${paramsWithCreds}`, { method: "GET" });
-    const analytics_request = await fetch(`https://data.api.xweather.com/lightning/analytics/${latitude},${longitude}${paramsWithCreds}`, { method: "GET" });
+class FetchData {
+    constructor(prefix, additionalParams = () => "") {
+        this.prefix = prefix;
+        this.additionalParams = additionalParams;
 
-    const regular = (await regular_request.json()).response;
-    const analytics = (await analytics_request.json()).response;
+        // preparing the static maps id -> object;
+        this.mapRegular = new Map();
+        this.mapAnalytics = new Map();
+    }
 
-    console.log(`sizes ${regular.length} vs ${analytics.length}`);
-    console.log(`using params ${params}`);
+    async fetchRegularAndAnalytics() {
+        const params = `radius=100Km&limit=1000&${this.additionalParams()}`;
+        const paramsWithCreds = `?client_id=${client_id}&client_secret=${client_secret}&${params}`;
+        const regular_request = await fetch(`https://data.api.xweather.com/lightning/${latitude},${longitude}${paramsWithCreds}`, { method: "GET" });
+        const analytics_request = await fetch(`https://data.api.xweather.com/lightning/analytics/${latitude},${longitude}${paramsWithCreds}`, { method: "GET" });
 
-    return { regular, analytics };
-}
+        const regular = (await regular_request.json()).response;
+        const analytics = (await analytics_request.json()).response;
 
-function mergeArrayInset(mapOfActivity, array) {
-    array.forEach(element => {
-        const existing = mapOfActivity.get(element.id);
+        this.log(`sizes ${regular.length} vs ${analytics.length}`);
+        this.log(`using params ${params}`);
 
-        if (!existing) {
-            mapOfActivity.set(element.id, element);
-        } else if (!!existing && existing.ob.pulse.peakamp != element.ob.pulse.peakamp) {
-            console.error(`error ${element.id} is different from previous calls & new one`, {existing, element});
-        }
-    });
+        return { regular, analytics };
+    }
+
+    mergeArrayInset(mapOfActivity, array) {
+        array.forEach(element => {
+            const existing = mapOfActivity.get(element.id);
+
+            if (!existing) {
+                mapOfActivity.set(element.id, element);
+            } else if (!!existing && existing.ob.pulse.peakamp != element.ob.pulse.peakamp) {
+                this.this(`error ${element.id} is different from previous calls & new one`, {existing, element});
+            }
+        });
+    }
+
+    async batchRetrieveData() {
+        const { regular, analytics } = await this.fetchRegularAndAnalytics();
+        
+        this.mergeArrayInset(this.mapRegular, regular);
+        this.mergeArrayInset(this.mapAnalytics, analytics);
+
+        this.log(`number of data available -> regular/${this.mapRegular.size} & analytics/${this.mapAnalytics.size}`);
+    }
+
+    getResultingData() {
+        const resultingRegulars = [...mapRegular.values()];
+        const resultingAnalytics = [...mapAnalytics.values()];
+
+        return {
+            regulars: resultingRegulars,
+            analytics: resultingAnalytics
+        };
+    }
+
+    log(msg) {
+        console.log(`[${this.prefix}] ${msg}`);
+    }
 }
 
 async function gatherAndMergeData() {
     const numberOfMinutes = 60;
     var remainingBatchesOf5s = numberOfMinutes * 60 / 5;
 
-    // preparing the static maps id -> object;
-    const mapRegular = new Map();
-    const mapAnalytics = new Map();
-
+    const fetchDataWithoutFromTo = new FetchData("no from/to");
+    const fetchDataWithFromTo = new FetchData("from/to",() => {
+        const to = Math.round(Date.now() / 1000);
+        const from = to - (5 * 60); //from 5min ago to now
+        return `to=${to}&from=${from}`
+    });
+    
     // fetching 
     while (remainingBatchesOf5s > 0) {
         console.log(`preparing batch ${remainingBatchesOf5s}`); 
-        const { regular, analytics } = await fetchRegularAndAnalytics();
-        
-        mergeArrayInset(mapRegular, regular);
-        mergeArrayInset(mapAnalytics, analytics);
-
-        console.log(`number of data available -> regular/${mapRegular.size} & analytics/${mapAnalytics.size}`);
+        await fetchDataWithoutFromTo.batchRetrieveData();
+        await fetchDataWithFromTo.batchRetrieveData();
 
         await wait(5);
         remainingBatchesOf5s--;
     }
 
-    const resultingRegulars = [...mapRegular.values()];
-    const resultingAnalytics = [...mapAnalytics.values()];
+    // fs.writeFileSync(cacheFilePath, JSON.stringify(result, null, 2));
 
-    const result = {
-        regulars: resultingRegulars,
-        analytics: resultingAnalytics
-    };
-
-    fs.writeFileSync(cacheFilePath, JSON.stringify(result, null, 2));
-
-    return result;
+    return [fetchDataWithoutFromTo, fetchDataWithFromTo];
 }
 
 async function gatherDataFromFile() {
-    if (fs.existsSync(cacheFilePath)) {
+    // disabled for now
+    /*if (fs.existsSync(cacheFilePath)) {
         console.log("skipping fetching data, using cached from ./activity.json");
         const content = fs.readFileSync(cacheFilePath, "utf8");
         return JSON.parse(content);
-    }
+    }*/
 
     return gatherAndMergeData();
 }
 
-async function runTest() {
-    const resultingData = await gatherDataFromFile();
-
+function finalResults(resultingData) {
     const { regulars, analytics } = resultingData;
 
     var numberOfAnalyticsNotFoundInRegularActivities = 0;
@@ -114,6 +136,15 @@ async function runTest() {
     console.log(`number of analytics not found in regular data -> ${numberOfAnalyticsNotFoundInRegularActivities}`);
     console.log(`number of analytics not matching "their" regular counterpart -> ${numberOfAnalyticsWithoutRegularActivityMatching}`);
     console.log(`number of analytics & regular matching together -> ${numberOfAnalyticsAndRegularMatching}`);
+}
+
+async function runTest() {
+    const resultingDatholders = await gatherDataFromFile();
+
+    for (const dataholder of resultingDatholders) {
+        const resultingData = dataholder.getResultingData();
+        await finalResults(resultingData);
+    }
 }
 
 runTest();
