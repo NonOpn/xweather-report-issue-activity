@@ -10,14 +10,19 @@ const cacheFilePath = "./activity.json";
 const wait = async (timeoutS) => new Promise((resolve, reject) => setTimeout(() => resolve(), timeoutS * 1000));
 
 async function fetchRegularAndAnalytics() {
-    const params = `?client_id=${client_id}&client_secret=${client_secret}&radius=100Km&limit=1000`;
-    const regular_request = await fetch(`https://data.api.xweather.com/lightning/${latitude},${longitude}${params}`, { method: "GET" });
-    const analytics_request = await fetch(`https://data.api.xweather.com/lightning/analytics/${latitude},${longitude}${params}`, { method: "GET" });
+    const to = Math.round(Date.now() / 1000);
+    const from = to - (5 * 60); //from 5min ago to now
+    const params = `radius=100Km&limit=1000&from=${from}&to=${to}`;
+    const paramsWithCreds = `?client_id=${client_id}&client_secret=${client_secret}&${params}`;
+    const regular_request = await fetch(`https://data.api.xweather.com/lightning/${latitude},${longitude}${paramsWithCreds}`, { method: "GET" });
+    const analytics_request = await fetch(`https://data.api.xweather.com/lightning/analytics/${latitude},${longitude}${paramsWithCreds}`, { method: "GET" });
 
     const regular = (await regular_request.json()).response;
     const analytics = (await analytics_request.json()).response;
 
     console.log(`sizes ${regular.length} vs ${analytics.length}`);
+    console.log(`using params ${params}`);
+
     return { regular, analytics };
 }
 
@@ -34,23 +39,25 @@ function mergeArrayInset(mapOfActivity, array) {
 }
 
 async function gatherAndMergeData() {
-    var batchOf20s = 0;
-    const maximumBatches = 10 * 12;
+    const numberOfMinutes = 60;
+    var remainingBatchesOf5s = numberOfMinutes * 60 / 5;
 
     // preparing the static maps id -> object;
     const mapRegular = new Map();
     const mapAnalytics = new Map();
 
     // fetching 
-    while (batchOf20s < maximumBatches) { // 30batches of 20s = 10min
-        console.log(`preparing batch ${batchOf20s}/${maximumBatches}`); 
+    while (remainingBatchesOf5s > 0) {
+        console.log(`preparing batch ${remainingBatchesOf5s}`); 
         const { regular, analytics } = await fetchRegularAndAnalytics();
         
         mergeArrayInset(mapRegular, regular);
         mergeArrayInset(mapAnalytics, analytics);
 
+        console.log(`number of data available -> regular/${mapRegular.size} & analytics/${mapAnalytics.size}`);
+
         await wait(5);
-        batchOf20s++;
+        remainingBatchesOf5s--;
     }
 
     const resultingRegulars = [...mapRegular.values()];
