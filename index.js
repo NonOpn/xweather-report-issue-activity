@@ -2,8 +2,8 @@ const fs = require("fs");
 
 const client_id = "changeme";
 const client_secret = "changeme";
-const latitude = 42.954057;
-const longitude = -1.105155;
+const latitude = 45.798793;
+const longitude = 13.260553;
 
 const cacheFilePath = "./activity.json";
 
