@@ -2,15 +2,16 @@ const fs = require("fs");
 
 const client_id = "changeme";
 const client_secret = "changeme";
-const latitude = 45.798793;
-const longitude = 13.260553;
+const latitude = 39.777931;
+const longitude = 19.415554;
 
 const cacheFilePath = "./activity.json";
 
 const wait = async (timeoutS) => new Promise((resolve, reject) => setTimeout(() => resolve(), timeoutS * 1000));
 
 class FetchData {
-    constructor(prefix, additionalParams = () => "") {
+    constructor(file, prefix, additionalParams = () => "") {
+        this.file = file;
         this.prefix = prefix;
         this.additionalParams = additionalParams;
 
@@ -56,13 +57,19 @@ class FetchData {
     }
 
     getResultingData() {
-        const resultingRegulars = [...mapRegular.values()];
-        const resultingAnalytics = [...mapAnalytics.values()];
+        const resultingRegulars = [...this.mapRegular.values()];
+        const resultingAnalytics = [...this.mapAnalytics.values()];
 
         return {
             regulars: resultingRegulars,
             analytics: resultingAnalytics
         };
+    }
+
+    writeData() {
+        const resultingData = this.getResultingData();
+        fs.writeFileSync(this.file, JSON.stringify(resultingData, null, 2), "utf8");
+        this.log(`wrote data to ${this.file}`);
     }
 
     log(msg) {
@@ -71,27 +78,28 @@ class FetchData {
 }
 
 async function gatherAndMergeData() {
+    const delayInSeconds = 20;
     const numberOfMinutes = 60;
-    var remainingBatchesOf5s = numberOfMinutes * 60 / 5;
+    var remainingBatchesOf20s = numberOfMinutes * 60 / delayInSeconds;
 
-    const fetchDataWithoutFromTo = new FetchData("no from/to");
-    const fetchDataWithFromTo = new FetchData("from/to",() => {
+    const fetchDataWithoutFromTo = new FetchData("activity_nofromto.json", "no from/to");
+    const fetchDataWithFromTo = new FetchData("activity_fromto.json", "from/to",() => {
         const to = Math.round(Date.now() / 1000);
         const from = to - (5 * 60); //from 5min ago to now
         return `to=${to}&from=${from}`
     });
-    
-    // fetching 
-    while (remainingBatchesOf5s > 0) {
-        console.log(`preparing batch ${remainingBatchesOf5s}`); 
+
+    // fetching data
+    while (remainingBatchesOf20s > 0) {
+        console.log(`preparing batch ${remainingBatchesOf20s}`);
         await fetchDataWithoutFromTo.batchRetrieveData();
         await fetchDataWithFromTo.batchRetrieveData();
 
-        await wait(5);
-        remainingBatchesOf5s--;
+        await wait(delayInSeconds);
+        remainingBatchesOf20s--;
     }
 
-    // fs.writeFileSync(cacheFilePath, JSON.stringify(result, null, 2));
+    [fetchDataWithoutFromTo, fetchDataWithFromTo].forEach(holder => holder.writeData());
 
     return [fetchDataWithoutFromTo, fetchDataWithFromTo];
 }
