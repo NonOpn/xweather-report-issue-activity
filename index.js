@@ -21,7 +21,7 @@ class FetchData {
     }
 
     async fetchRegularAndAnalytics() {
-        const params = `radius=100Km&limit=1000&${this.additionalParams()}`;
+        const params = `radius=100Km&limit=1000&${this.additionalParams()}&sort=dt:-1`;
         const paramsWithCreds = `?client_id=${client_id}&client_secret=${client_secret}&${params}`;
         const regular_request = await fetch(`https://data.api.xweather.com/lightning/${latitude},${longitude}${paramsWithCreds}`, { method: "GET" });
         const analytics_request = await fetch(`https://data.api.xweather.com/lightning/analytics/${latitude},${longitude}${paramsWithCreds}`, { method: "GET" });
